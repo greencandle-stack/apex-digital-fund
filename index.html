@@ -3,93 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apex Digital Fund — Bitcoin Treasury & Infrastructure Consolidation</title>
+<title>Apex Digital Fund</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
---bg:#0a0b0f;--bg2:#0e1017;--bg3:#12141c;--card:#14161f;
---accent:#00d4ff;--accent2:#0088cc;--accent-glow:rgba(0,212,255,.15);
---text:#e8eaf0;--text-dim:#8a8fa8;--border:rgba(255,255,255,.06);
---border-accent:rgba(0,212,255,.2);
+--bg:#0a0a0e;--bg2:#0f1014;--card:#15161c;
+--accent:#00d4ff;
+--text:#f0f1f5;--text-mid:#b0b3c0;--text-dim:#6b6f82;
+--border:rgba(255,255,255,.07);
 }
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:18px;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.035;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-background-size:128px 128px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:background .3s,backdrop-filter .3s}
-nav.scrolled{background:rgba(10,11,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{height:36px;opacity:.9}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:var(--text-dim);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
-.nav-links a:hover{color:var(--accent)}
-.nav-cta{background:var(--accent);color:#0a0b0f;padding:10px 24px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.5px;transition:opacity .3s}
-.nav-cta:hover{opacity:.85}
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,backdrop-filter .4s}
+nav.scrolled{background:rgba(10,10,14,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:28px 48px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:18px;font-weight:800;letter-spacing:1.5px;color:#fff;text-decoration:none;text-transform:uppercase}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.3px;transition:color .3s}
+.nav-links a:hover{color:#fff}
+.nav-cta{border:1px solid rgba(255,255,255,.25);color:#fff;padding:10px 28px;border-radius:40px;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:.3px;transition:background .3s,border-color .3s}
+.nav-cta:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)}
 
-section{padding:140px 40px}
-.container{max-width:1200px;margin:0 auto}
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,14,1) 0%,rgba(10,10,14,.7) 35%,rgba(10,10,14,.3) 60%,rgba(10,10,14,.15) 100%)}
+.hero-content{position:relative;z-index:1;max-width:1240px;margin:0 auto;width:100%}
+.hero h1{font-size:clamp(42px,6vw,72px);font-weight:800;line-height:1.08;letter-spacing:-2px;max-width:800px}
+.hero-sub{font-size:clamp(17px,2vw,21px);color:var(--text-mid);max-width:580px;margin-top:24px;line-height:1.7;font-weight:300}
+.hero-line{width:60px;height:3px;background:var(--accent);margin-top:32px}
 
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:100px;position:relative}
-.hero::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,212,255,.06) 0%,transparent 70%);pointer-events:none}
-.hero-content{position:relative;z-index:1}
-.hero-badge{display:inline-block;border:1px solid var(--border-accent);color:var(--accent);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:40px;margin-bottom:40px}
-.hero h1{font-size:clamp(48px,8vw,80px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:28px}
-.hero h1 .accent{color:var(--accent)}
-.hero-sub{font-size:clamp(18px,2.2vw,22px);color:var(--text-dim);max-width:700px;margin:0 auto 50px;line-height:1.7;font-weight:300}
+/* Sections */
+section{padding:140px 48px}
+.container{max-width:1240px;margin:0 auto}
+.section-label{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(32px,4.5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.12;margin-bottom:20px}
+.section-desc{font-size:19px;color:var(--text-mid);max-width:600px;line-height:1.8;font-weight:300}
 
-.section-label{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
-.section-title{font-size:clamp(36px,5vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.15;margin-bottom:24px}
-.section-desc{font-size:20px;color:var(--text-dim);max-width:640px;line-height:1.8;font-weight:300}
+/* Two-col layout */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.split-narrow{display:grid;grid-template-columns:.4fr .6fr;gap:80px;align-items:start}
 
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:44px;transition:border-color .4s,box-shadow .4s}
-.card:hover{border-color:var(--border-accent);box-shadow:0 0 40px rgba(0,212,255,.05)}
+/* About */
+.about-text{font-size:19px;color:var(--text-mid);line-height:1.9;font-weight:300}
+.about-list{list-style:none;padding:0;margin-top:40px}
+.about-list li{padding:16px 0;border-bottom:1px solid var(--border);font-size:17px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:14px}
+.about-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
 
-/* Thesis */
-.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px}
-.thesis-text{font-size:20px;color:var(--text-dim);line-height:1.8;font-weight:300}
-.thesis-points{list-style:none;padding:0;margin-top:24px}
-.thesis-points li{padding:14px 0;padding-left:24px;position:relative;font-size:18px;color:var(--text);font-weight:500}
-.thesis-points li::before{content:'';position:absolute;left:0;top:22px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-
-/* Value Creation */
-.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-top:60px}
-.value-card{border-top:3px solid var(--accent)}
-.value-card h3{font-size:22px;font-weight:700;margin-bottom:16px}
-.value-card p{color:var(--text-dim);font-size:17px;line-height:1.8}
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;transition:border-color .4s,transform .4s}
+.card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-2px)}
+.card h3{font-size:21px;font-weight:700;margin-bottom:12px}
+.card p{color:var(--text-mid);font-size:16px;line-height:1.75}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
 
 /* Team */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:60px}
-.team-card{text-align:center;padding:48px 36px}
-.team-card img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:24px;border:2px solid var(--border-accent);filter:grayscale(.2)}
-.team-card h3{font-size:22px;font-weight:700;margin-bottom:4px}
-.team-card .role{color:var(--accent);font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
-.team-card p{color:var(--text-dim);font-size:16px;line-height:1.7}
-.team-card .stat{font-size:32px;font-weight:800;color:var(--accent);margin-top:16px}
-.team-card .stat-label{color:var(--text-dim);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:44px 36px;text-align:center;transition:border-color .4s}
+.team-card:hover{border-color:rgba(255,255,255,.12)}
+.team-card img{width:110px;height:110px;border-radius:50%;object-fit:cover;margin-bottom:24px;border:2px solid rgba(255,255,255,.08)}
+.team-card h3{font-size:20px;font-weight:700;margin-bottom:4px}
+.team-card .role{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.team-card p{color:var(--text-mid);font-size:15px;line-height:1.7}
+.team-card .stat{font-size:36px;font-weight:800;color:var(--accent);margin-top:20px;letter-spacing:-1px}
+.team-card .stat-label{color:var(--text-dim);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
 
-/* Contact */
-.contact-section{text-align:center}
-.contact-email{display:inline-block;margin-top:40px;font-size:clamp(20px,3vw,28px);color:var(--accent);text-decoration:none;font-weight:600;border-bottom:2px solid transparent;transition:border-color .3s}
-.contact-email:hover{border-color:var(--accent)}
+/* CTA */
+.cta-section{text-align:center;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-email{display:inline-block;margin-top:36px;color:#fff;font-size:clamp(18px,2.5vw,26px);font-weight:600;text-decoration:none;padding:16px 48px;border:1px solid rgba(255,255,255,.2);border-radius:40px;transition:background .3s,border-color .3s}
+.cta-email:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.35)}
 
-footer{padding:60px 40px;border-top:1px solid var(--border);text-align:center}
-footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
+/* Footer */
+footer{padding:48px;text-align:center;border-top:1px solid var(--border)}
+footer p{color:var(--text-dim);font-size:13px;line-height:2}
 
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+/* Animations */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-@media(max-width:768px){
-  section{padding:100px 24px}
+/* Responsive */
+@media(max-width:900px){
+  .nav-inner{padding:20px 24px}
   .nav-links{display:none}
-  .nav-inner{padding:0 24px}
-  .thesis-grid{grid-template-columns:1fr;gap:32px}
-}
-@media(max-width:480px){
   .nav-cta{display:none}
+  .hero{padding:0 24px 80px}
+  section{padding:100px 24px}
+  .split,.split-narrow{grid-template-columns:1fr;gap:40px}
+  .card-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
 }
 </style>
 </head>
@@ -97,40 +104,42 @@ footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
 
 <nav id="nav">
   <div class="nav-inner">
-    <img src="img/logo.png" alt="Apex Digital Fund" class="nav-logo">
+    <a href="#" class="nav-logo">Apex <span>Digital</span> Fund</a>
     <ul class="nav-links">
-      <li><a href="#thesis">Thesis</a></li>
-      <li><a href="#value">Value Creation</a></li>
+      <li><a href="#about">Who We Are</a></li>
+      <li><a href="#value">Our Approach</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <a href="#contact" class="nav-cta">Contact Us →</a>
   </div>
 </nav>
 
-<section class="hero" id="hero">
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="">
+  </div>
   <div class="hero-content">
-    <div class="hero-badge">Accredited Investors Only</div>
-    <h1>Bitcoin Treasury &<br><span class="accent">Infrastructure</span><br>Consolidation Fund</h1>
-    <p class="hero-sub">A control-oriented acquisition vehicle targeting Bitcoin-native infrastructure businesses across payments, custody, mining, and treasury operations.</p>
+    <h1>Building the Future of Bitcoin Infrastructure</h1>
+    <p class="hero-sub">A control-oriented acquisition fund targeting Bitcoin-native businesses across payments, custody, mining, and treasury operations.</p>
+    <div class="hero-line"></div>
   </div>
 </section>
 
-<section id="thesis">
+<section id="about">
   <div class="container">
-    <div class="reveal">
-      <div class="section-label">Investment Thesis</div>
-      <div class="section-title">Acquire. Integrate. Scale.</div>
-    </div>
-    <div class="thesis-grid reveal">
+    <div class="split reveal">
       <div>
-        <p class="thesis-text">Apex Digital Fund acquires cash-flowing Bitcoin-native companies and integrates them into a unified operating platform. We drive value through operational consolidation, shared infrastructure, and cross-portfolio revenue optimization.</p>
+        <div class="section-label">Who We Are</div>
+        <div class="section-title">Acquire. Integrate. Scale.</div>
+        <p class="about-text">Apex Digital Fund acquires cash-flowing Bitcoin-native companies and integrates them into a unified operating platform. We drive value through operational consolidation, shared infrastructure, and cross-portfolio revenue optimization.</p>
       </div>
       <div>
-        <ul class="thesis-points">
+        <ul class="about-list">
           <li>Control-position acquisitions in proven businesses</li>
           <li>Proprietary deal flow through the PlebLab ecosystem</li>
           <li>Proven integration playbook across complex operations</li>
           <li>Unified platform unlocking compounding synergies</li>
+          <li>Bitcoin-native operators with deep domain expertise</li>
         </ul>
       </div>
     </div>
@@ -140,22 +149,22 @@ footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
 <section id="value" style="background:var(--bg2)">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Value Creation</div>
-      <div class="section-title">Three Synergy Engines</div>
-      <p class="section-desc">Every acquisition feeds into a compounding system of financial, operational, and revenue synergies.</p>
+      <div class="section-label">Our Approach</div>
+      <div class="section-title">Value Creation Through Integration</div>
+      <p class="section-desc">Every acquisition feeds into a compounding system designed to unlock financial, operational, and revenue synergies across the portfolio.</p>
     </div>
-    <div class="value-grid">
-      <div class="card value-card reveal">
+    <div class="card-grid">
+      <div class="card reveal">
         <h3>Financial Synergies</h3>
         <p>Internal capital recycling across the portfolio with consolidated Bitcoin treasury management and optimized cost of capital.</p>
       </div>
-      <div class="card value-card reveal">
+      <div class="card reveal">
         <h3>Operational Synergies</h3>
-        <p>Shared infrastructure and tooling with standardized reporting, compliance, and a unified analytics dashboard spanning the portfolio.</p>
+        <p>Shared infrastructure, standardized reporting and compliance, and a unified analytics layer spanning all portfolio companies.</p>
       </div>
-      <div class="card value-card reveal">
+      <div class="card reveal">
         <h3>Revenue Synergies</h3>
-        <p>Cross-platform distribution channels, bundled service offerings, and expanded monetization across all portfolio companies.</p>
+        <p>Cross-platform distribution channels, bundled service offerings, and expanded monetization across the entire portfolio.</p>
       </div>
     </div>
   </div>
@@ -163,13 +172,12 @@ footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
 
 <section id="team">
   <div class="container">
-    <div class="reveal" style="text-align:center">
+    <div class="reveal" style="text-align:center;margin-bottom:20px">
       <div class="section-label">Leadership</div>
       <div class="section-title">The Team</div>
-      <p class="section-desc" style="margin:0 auto">Operators and dealmakers with deep Bitcoin-native expertise and a proven track record.</p>
     </div>
     <div class="team-grid">
-      <div class="card team-card reveal">
+      <div class="team-card reveal">
         <img src="img/car.jpg" alt="Car Gonzalez">
         <h3>Car Gonzalez</h3>
         <div class="role">Chief Development Officer</div>
@@ -177,7 +185,7 @@ footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
         <div class="stat">47+</div>
         <div class="stat-label">Companies sourced annually</div>
       </div>
-      <div class="card team-card reveal">
+      <div class="team-card reveal">
         <img src="img/john.jpg" alt="John Lightsey">
         <h3>John Lightsey</h3>
         <div class="role">Chief Financial Officer</div>
@@ -185,7 +193,7 @@ footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
         <div class="stat">$3.4B+</div>
         <div class="stat-label">Transaction experience</div>
       </div>
-      <div class="card team-card reveal">
+      <div class="team-card reveal">
         <img src="img/brandon.jpg" alt="Brandon Keys">
         <h3>Brandon Keys</h3>
         <div class="role">Chief Operations Officer</div>
@@ -197,30 +205,25 @@ footer p{color:var(--text-dim);font-size:14px;line-height:1.8}
   </div>
 </section>
 
-<section class="contact-section" id="contact" style="background:var(--bg2)">
+<section class="cta-section" id="contact">
   <div class="container reveal">
     <div class="section-label">Get in Touch</div>
-    <div class="section-title">Indicative Terms Available Upon Request</div>
-    <p class="section-desc" style="margin:0 auto">Apex Digital Fund is open to accredited investors. Reach out to learn more about the opportunity.</p>
-    <a href="mailto:brandon.keys@apexdigitalfund.vc" class="contact-email">brandon.keys@apexdigitalfund.vc</a>
+    <div class="section-title">Let's Talk</div>
+    <p class="section-desc" style="margin:0 auto 12px">Indicative terms summary available upon request.</p>
+    <a href="mailto:brandon.keys@apexdigitalfund.vc" class="cta-email">brandon.keys@apexdigitalfund.vc</a>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <img src="img/logo.png" alt="Apex Digital Fund" style="height:28px;opacity:.5;margin-bottom:20px">
-    <p>Regulation D Rule 506(c) &mdash; Accredited Investors Only</p>
-    <p style="margin-top:8px">&copy; 2025 Apex Digital Fund. All rights reserved.</p>
-  </div>
+  <p>Regulation D Rule 506(c) &mdash; Accredited Investors Only</p>
+  <p>&copy; 2025 Apex Digital Fund. All rights reserved.</p>
 </footer>
 
 <script>
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
-},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>

@@ -64,8 +64,10 @@ section{padding:140px 48px}
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
 
 /* Team */
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px}
-.team-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:44px 36px;text-align:center;transition:border-color .4s}
+.team-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px;margin-top:60px}
+.team-card{grid-column:span 2;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:44px 36px;text-align:center;transition:border-color .4s}
+.team-card:nth-child(4){grid-column:2 / span 2}
+.team-card:nth-child(5){grid-column:4 / span 2}
 .team-card:hover{border-color:rgba(255,255,255,.12)}
 .team-card img{width:110px;height:110px;border-radius:50%;object-fit:cover;margin-bottom:24px;border:2px solid rgba(255,255,255,.08)}
 .team-card h3{font-size:20px;font-weight:700;margin-bottom:4px}
@@ -104,6 +106,7 @@ footer p{color:var(--text-dim);font-size:13px;line-height:2}
   .split,.split-narrow{grid-template-columns:1fr;gap:40px}
   .card-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
+  .team-card,.team-card:nth-child(4),.team-card:nth-child(5){grid-column:auto}
 }
 </style>
 </head>
@@ -230,7 +233,7 @@ footer p{color:var(--text-dim);font-size:13px;line-height:2}
       <div class="team-card reveal">
         <img src="img/john.jpg" alt="John Lightsey">
         <h3>John Lightsey</h3>
-        <div class="role">CFO/COO</div>
+        <div class="role">Chief Finance Officer</div>
         <p><strong>Founding Partner, Finance</strong>Fund finance, reporting, operations</p>
       </div>
       <div class="team-card reveal">
@@ -242,7 +245,7 @@ footer p{color:var(--text-dim);font-size:13px;line-height:2}
       <div class="team-card reveal">
         <img src="img/wesley.jpg" alt="Wesley Schlemmer">
         <h3>Wesley Schlemmer</h3>
-        <div class="role">Chief Investor Relations Officer (CIRO)</div>
+        <div class="role">Chief Investor Relations Officer</div>
         <p><strong>Founding Partner, Capital Formation &amp; Investor Relations</strong>LP relationships, fundraising, investor communications</p>
       </div>
       <div class="team-card reveal">

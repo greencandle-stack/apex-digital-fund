@@ -263,7 +263,7 @@ footer p{color:var(--text-dim);font-size:13px;line-height:2}
     <div class="section-label">Get in Touch</div>
     <div class="section-title">Let's Talk</div>
     <p class="section-desc" style="margin:0 auto 12px">Indicative terms summary available upon request.</p>
-    <form class="contact-form" id="contact-form" action="mailto:brandon@keysmediaconsulting.com" method="GET">
+    <form class="contact-form" id="contact-form" action="mailto:john.lightsey@apexdigitalfund.vc,car.gonzalez@apexdigitalfund.vc,brandon.keys@apexdigitalfund.vc" method="GET">
       <input type="text" name="name" placeholder="Name" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="text" name="company" placeholder="Company / Fund (optional)">
@@ -294,7 +294,8 @@ contactForm.addEventListener('submit',e=>{
   const message=data.get('message') || '';
   const subject='Apex Digital Fund inquiry';
   const body=`Name: ${name}\nEmail: ${email}\nCompany / Fund: ${company}\n\nMessage:\n${message}`;
-  window.location.href=`mailto:brandon@keysmediaconsulting.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const recipients='john.lightsey@apexdigitalfund.vc,car.gonzalez@apexdigitalfund.vc,brandon.keys@apexdigitalfund.vc';
+  window.location.href=`mailto:${recipients}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
 </script>
 </body>
